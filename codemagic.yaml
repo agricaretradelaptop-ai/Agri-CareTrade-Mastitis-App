@@ -7,23 +7,23 @@ workflows:
     scripts:
       - name: Create Gradle 9 wrapper
         script: |
+          set -e
           rm -rf /tmp/agri-gradle-wrapper
           mkdir -p /tmp/agri-gradle-wrapper
-          cat > /tmp/agri-gradle-wrapper/build.gradle <<'EOF'
-          tasks.register("wrapper", Wrapper) {
-              gradleVersion = "9.3.0"
-              distributionType = Wrapper.DistributionType.BIN
-          }
-          EOF
-          gradle -p /tmp/agri-gradle-wrapper wrapper --no-daemon
-          cp -R /tmp/agri-gradle-wrapper/gradle ./gradle
-          cp /tmp/agri-gradle-wrapper/gradlew ./gradlew
-          cp /tmp/agri-gradle-wrapper/gradlew.bat ./gradlew.bat
-          chmod +x ./gradlew
+          cd /tmp/agri-gradle-wrapper
+          touch settings.gradle
+          touch build.gradle
+          gradle wrapper --gradle-version 9.3.0 --distribution-type bin
+          cp gradlew "$CM_BUILD_DIR/gradlew"
+          cp gradlew.bat "$CM_BUILD_DIR/gradlew.bat"
+          rm -rf "$CM_BUILD_DIR/gradle"
+          cp -R gradle "$CM_BUILD_DIR/gradle"
+          cd "$CM_BUILD_DIR"
+          chmod +x gradlew
           ./gradlew --version
       - name: Build debug APK
         script: |
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/apk/debug/*.apk
 
@@ -35,22 +35,22 @@ workflows:
     scripts:
       - name: Create Gradle 9 wrapper
         script: |
+          set -e
           rm -rf /tmp/agri-gradle-wrapper
           mkdir -p /tmp/agri-gradle-wrapper
-          cat > /tmp/agri-gradle-wrapper/build.gradle <<'EOF'
-          tasks.register("wrapper", Wrapper) {
-              gradleVersion = "9.3.0"
-              distributionType = Wrapper.DistributionType.BIN
-          }
-          EOF
-          gradle -p /tmp/agri-gradle-wrapper wrapper --no-daemon
-          cp -R /tmp/agri-gradle-wrapper/gradle ./gradle
-          cp /tmp/agri-gradle-wrapper/gradlew ./gradlew
-          cp /tmp/agri-gradle-wrapper/gradlew.bat ./gradlew.bat
-          chmod +x ./gradlew
+          cd /tmp/agri-gradle-wrapper
+          touch settings.gradle
+          touch build.gradle
+          gradle wrapper --gradle-version 9.3.0 --distribution-type bin
+          cp gradlew "$CM_BUILD_DIR/gradlew"
+          cp gradlew.bat "$CM_BUILD_DIR/gradlew.bat"
+          rm -rf "$CM_BUILD_DIR/gradle"
+          cp -R gradle "$CM_BUILD_DIR/gradle"
+          cd "$CM_BUILD_DIR"
+          chmod +x gradlew
           ./gradlew --version
       - name: Build release AAB
         script: |
-          ./gradlew bundleRelease --stacktrace
+          ./gradlew bundleRelease
     artifacts:
       - app/build/outputs/bundle/release/*.aab
