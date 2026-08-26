@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+<meta name="theme-color" content="#06366F" />
+<title>Agri CareTrade Mastitis Cost Calculator</title>
+<style>
+:root{--navy:#06366F;--navy2:#0B2D4D;--green:#35B64A;--green2:#278F2E;--pale:#F3F7F5;--line:#DDE5E1;--text:#16212B;--muted:#68757E;--white:#fff;--shadow:0 2px 10px rgba(6,54,111,.08)}
+*{box-sizing:border-box}html,body{margin:0;background:#eef3f1;color:var(--text);font-family:Arial,Helvetica,sans-serif}button,input,textarea{font:inherit}.app{max-width:560px;margin:0 auto;min-height:100vh;background:#fff;position:relative;padding-bottom:72px}.screen{display:none}.screen.active{display:block}.topbar{height:64px;background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:4px solid var(--green);position:sticky;top:0;z-index:8}.topbar img{width:132px;height:auto;background:#fff;border-radius:6px;padding:4px 6px}.topbar .title{font-weight:800;font-size:18px;flex:1}.iconbtn{border:0;background:transparent;color:inherit;font-size:27px;padding:4px 8px}.content{padding:15px}.hero{min-height:calc(100vh - 72px);background:linear-gradient(165deg,#fff 0 34%,#f4f8f6 34% 42%,var(--navy) 42% 100%);display:flex;flex-direction:column}.heroLogo{width:82%;max-width:420px;margin:26px auto 12px;display:block}.heroPhoto{height:180px;margin-top:10px;background:linear-gradient(135deg,#d9e4df,#f6f8f7);position:relative;overflow:hidden}.heroPhoto:before{content:'DAIRY HERD HEALTH';position:absolute;inset:auto 18px 18px;font-weight:900;color:rgba(6,54,111,.22);font-size:28px;letter-spacing:1px}.heroPanel{flex:1;color:#fff;padding:26px 28px 30px}.heroPanel h1{font-size:37px;line-height:1.04;margin:0 0 12px}.heroPanel p{line-height:1.5;color:#e7eff8}.feature{display:flex;gap:13px;align-items:center;margin:18px 0}.featureIcon{width:42px;height:42px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-size:21px;font-weight:900}.primary,.secondary{width:100%;border-radius:8px;padding:14px 16px;font-weight:800;font-size:16px;cursor:pointer}.primary{border:0;background:linear-gradient(90deg,var(--green2),#42c44f);color:#fff}.secondary{border:1.5px solid var(--navy);background:#fff;color:var(--navy)}.card{background:#fff;border:1px solid #e4ebe7;border-radius:10px;padding:15px;margin-bottom:12px;box-shadow:var(--shadow)}.sectionTitle{display:flex;align-items:center;gap:9px;color:var(--green2);font-weight:900;text-transform:uppercase;font-size:14px;margin:0 0 13px}.sectionTitle .sym{color:var(--navy);font-size:20px}.field{display:grid;grid-template-columns:1fr 112px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid #edf1ef}.field:last-child{border-bottom:0}.field label{font-size:13px;line-height:1.35}.field input{width:100%;padding:10px;border:1px solid #cdd8d3;border-radius:7px;background:#fff;text-align:right}.bigCost{text-align:center}.bigCost .eyebrow{font-weight:800;color:var(--green2)}.bigCost .amount{font-size:39px;font-weight:900;color:var(--green2);margin:7px 0}.bigCost .per{font-size:14px;color:var(--navy);font-weight:700}.tilegrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.tile{border:1px solid #e4ebe7;border-radius:10px;padding:13px 8px;text-align:center;box-shadow:var(--shadow)}.tile .circle{width:47px;height:47px;border-radius:50%;display:grid;place-items:center;margin:0 auto 8px;background:var(--navy);color:#fff;font-size:21px}.tile:nth-child(even) .circle{background:var(--green2)}.tile .lbl{font-size:12px;min-height:30px}.tile .val{margin-top:5px;font-weight:900;color:var(--green2)}.tip{border:1px solid #8dc47e;background:#f4fbf2;border-radius:8px;padding:13px;margin:12px 0;line-height:1.35}.break{padding:13px 14px}.break h3{color:var(--green2);font-size:14px;margin:0 0 9px}.row{display:flex;justify-content:space-between;gap:14px;padding:4px 0;font-size:13px}.row.total{font-weight:900;color:var(--green2);border-top:1px solid #e8eeeb;margin-top:5px;padding-top:8px}.grand{display:flex;justify-content:space-between;border:1px solid #8dc47e;background:#f4fbf2;padding:13px;border-radius:8px;color:#1f6d26;font-weight:900}.form label{display:block;font-size:13px;margin:11px 0 5px}.form input,.form textarea{width:100%;padding:11px;border:1px solid #cfdad5;border-radius:7px}.form textarea{min-height:96px;resize:vertical}.center{text-align:center}.mailCircle{width:72px;height:72px;margin:8px auto 16px;border-radius:50%;display:grid;place-items:center;background:#e7f6e5;color:var(--green2);font-size:36px}.report{border:1px solid #dce5e0;border-radius:8px;padding:16px;box-shadow:var(--shadow);background:#fff}.reportTop{display:flex;gap:14px;align-items:center;border-bottom:1px solid #e6ece9;padding-bottom:12px;margin-bottom:12px}.reportTop img{width:47%;max-width:210px}.reportTop b{margin-left:auto;text-align:right;font-size:15px;color:var(--navy)}.reportBand{margin:14px 0;background:var(--green2);color:#fff;text-align:center;font-weight:800;padding:7px}.reportAmount{text-align:center;font-size:30px;font-weight:900;color:var(--green2);margin:8px}.historyEmpty{text-align:center;padding:55px 25px;color:var(--muted)}.histItem{border-left:5px solid var(--green);padding:12px 14px;background:#fff;border-radius:8px;margin-bottom:10px;box-shadow:var(--shadow)}.aboutLogo{width:86%;max-width:390px;display:block;margin:20px auto}.aboutText{line-height:1.55;color:#3d4b54}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(560px,100%);height:68px;background:#fff;border-top:1px solid #dce5e0;display:grid;grid-template-columns:repeat(4,1fr);z-index:20}.nav button{border:0;background:#fff;color:#243644;font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}.nav button .ni{font-size:21px}.nav button.active{color:var(--green2);font-weight:900}.muted{color:var(--muted);font-size:12px}.spacer8{height:8px}@media print{.topbar,.nav,.actions{display:none!important}.app{max-width:none;padding:0}.screen{display:none!important}#printScreen{display:block!important}.content{padding:0}.report{border:0;box-shadow:none}}
+.welcomeOverlay{position:fixed;inset:0;background:rgba(4,30,55,.72);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}.welcomePopup{width:min(420px,100%);background:#fff;border-radius:18px;padding:25px 22px 22px;text-align:center;box-shadow:0 18px 60px rgba(0,0,0,.28);border-top:7px solid var(--green)}.welcomePopup img{width:78%;max-width:270px;margin:0 auto 17px}.welcomePopup h2{color:var(--navy);font-size:24px;line-height:1.15;margin:0 0 12px}.welcomePopup p{color:#44545f;line-height:1.5;margin:0 0 13px}.welcomePopup .protect{color:var(--green2);font-weight:900;margin:14px 0 19px}.welcomePopup .primary{font-size:17px}
+</style>
+</head>
+<body>
+<div id="welcomeOverlay" class="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="welcomePopup">
+    <img src="agri_logo.png" alt="Agri CareTrade">
+    <h2 id="welcomeTitle">Prevention Costs Less Than the Problem</h2>
+    <p>Investing in mastitis prevention today can save significantly more in treatment costs, lost milk and reduced performance tomorrow.</p>
+    <div class="protect">Protect your herd. Protect your milk. Protect your profit.</div>
+    <button class="primary" onclick="closeWelcome()">Start Calculation &nbsp; →</button>
+  </div>
+</div>
+<div class="app">
+<section id="home" class="screen active hero">
+  <img class="heroLogo" src="agri_logo.png" alt="Agri CareTrade">
+  <div class="heroPhoto"></div>
+  <div class="heroPanel">
+    <h1>Mastitis<br>Cost Calculator</h1>
+    <p>Calculate the true cost of mastitis on your farm.</p>
+    <div class="feature"><div class="featureIcon">▦</div><div><b>Clinical &amp; Subclinical</b><br>mastitis calculations</div></div>
+    <div class="feature"><div class="featureIcon">£</div><div><b>Understand the financial</b><br>impact on your farm</div></div>
+    <div class="feature"><div class="featureIcon">↗</div><div><b>Make informed decisions</b><br>to improve herd health</div></div>
+    <button class="primary" onclick="show('calc')">Start Calculation &nbsp; →</button>
+  </div>
+</section>
+
+<section id="calc" class="screen">
+  <div class="topbar"><button class="iconbtn" onclick="show('home')">‹</button><img src="agri_logo.png"><div class="title">Mastitis Cost Calculator</div></div>
+  <div class="content">
+    <div class="card"><div class="sectionTitle"><span class="sym">🐄</span> Herd Information</div>
+      <div class="field"><label>Total number of cows</label><input id="cows" type="number" min="1" value="120"></div>
+      <div class="field"><label>Average milk yield per cow (litres/day)</label><input id="yield" type="number" min="0" step="0.1" value="30"></div>
+    </div>
+    <div class="card"><div class="sectionTitle"><span class="sym">◉</span> Mastitis Information</div>
+      <div class="field"><label>Clinical mastitis cases per month</label><input id="clinical" type="number" min="0" step="0.1" value="3"></div>
+      <div class="field"><label>Subclinical mastitis rate (%)</label><input id="subrate" type="number" min="0" max="100" step="0.1" value="25"></div>
+      <div class="field"><label>Milk price per litre (£)</label><input id="milkprice" type="number" min="0" step="0.01" value="0.45"></div>
+    </div>
+    <div class="card"><div class="sectionTitle"><span class="sym">▣</span> Treatment Costs</div>
+      <div class="field"><label>Treatment cost per clinical case (£)</label><input id="treatment" type="number" min="0" step="0.01" value="25.00"></div>
+      <div class="field"><label>Additional annual vet / disposal cost (£)</label><input id="vetannual" type="number" min="0" step="0.01" value="500"></div>
+    </div>
+    <button class="primary" onclick="calculate()">▦ &nbsp; Calculate Results</button>
+  </div>
+</section>
+
+<section id="results" class="screen">
+  <div class="topbar"><button class="iconbtn" onclick="show('calc')">‹</button><div class="title">Results Summary</div></div>
+  <div class="content">
+    <div class="card bigCost"><div class="eyebrow">Your Estimated Annual Cost</div><div class="amount" data-bind="grand">£0.00</div><div class="per">that's <span data-bind="perCow">£0.00</span> per cow</div></div>
+    <div class="tilegrid">
+      <div class="tile"><div class="circle">◉</div><div class="lbl">Clinical Mastitis Cost</div><div class="val" data-bind="clinicalTotal"></div></div>
+      <div class="tile"><div class="circle">⌕</div><div class="lbl">Subclinical Mastitis Cost</div><div class="val" data-bind="subTotal"></div></div>
+      <div class="tile"><div class="circle">▣</div><div class="lbl">Milk Loss Cost</div><div class="val" data-bind="milkLossCost"></div></div>
+      <div class="tile"><div class="circle">£</div><div class="lbl">Other Costs</div><div class="val" data-bind="other"></div></div>
+    </div>
+    <div class="tip">💡 Reducing mastitis by just 10% could save you <b data-bind="saving"></b> per year.</div>
+    <button class="primary" onclick="show('detail')">View Detailed Breakdown &nbsp; →</button><div class="spacer8"></div>
+    <button class="secondary" onclick="show('contact')">✉ &nbsp; Discuss Your Results</button><div class="spacer8"></div>
+    <button class="secondary" onclick="show('printScreen')">▤ &nbsp; Print / Save Result</button>
+  </div>
+</section>
+
+<section id="detail" class="screen">
+  <div class="topbar"><button class="iconbtn" onclick="show('results')">‹</button><div class="title">Detailed Breakdown</div></div>
+  <div class="content">
+    <div class="card break"><h3>1. Clinical Mastitis Cost</h3><div class="row"><span>Number of cases per year</span><span data-bind="cases"></span></div><div class="row"><span>Treatment cost</span><span data-bind="treatmentCost"></span></div><div class="row"><span>Milk loss</span><span data-bind="clinicalMilk"></span></div><div class="row"><span>Vet cost</span><span data-bind="clinicalVet"></span></div><div class="row total"><span>Total</span><span data-bind="clinicalTotal"></span></div></div>
+    <div class="card break"><h3>2. Subclinical Mastitis Cost</h3><div class="row"><span>Affected cows</span><span data-bind="affected"></span></div><div class="row"><span>Milk loss per cow (L/year)</span><span>438</span></div><div class="row"><span>Total milk loss (L)</span><span data-bind="subLitres"></span></div><div class="row"><span>Milk loss cost</span><span data-bind="subMilkCost"></span></div><div class="row"><span>Laboratory testing</span><span data-bind="lab"></span></div><div class="row total"><span>Total</span><span data-bind="subTotal"></span></div></div>
+    <div class="card break"><h3>3. Milk Loss Cost (Clinical)</h3><div class="row"><span>Milk loss (L/year)</span><span data-bind="clinicalLitres"></span></div><div class="row"><span>Milk price per litre</span><span data-bind="milkPrice"></span></div><div class="row total"><span>Total</span><span data-bind="milkLossCost"></span></div></div>
+    <div class="card break"><h3>4. Other Costs</h3><div class="row"><span>Vet / disposal / cull / other</span><span data-bind="other"></span></div><div class="row total"><span>Total</span><span data-bind="other"></span></div></div>
+    <div class="grand"><span>Grand Total Annual Cost</span><span data-bind="grand"></span></div>
+  </div>
+</section>
+
+<section id="contact" class="screen">
+  <div class="topbar"><button class="iconbtn" onclick="show('results')">‹</button><div class="title">Discuss Your Results</div></div>
+  <div class="content form">
+    <div class="center"><div class="mailCircle">✉</div><p>Send your results to our team and we will be in touch to help you reduce mastitis on your farm.</p></div>
+    <label>Your Name</label><input id="name" placeholder="Your name">
+    <label>Your Email</label><input id="email" type="email" placeholder="you@example.com">
+    <label>Your Phone (optional)</label><input id="phone" type="tel" placeholder="07...">
+    <label>Additional Comments (optional)</label><textarea id="comments">Please contact me to discuss these results and how I can reduce mastitis on my farm.</textarea>
+    <div class="spacer8"></div><button class="primary" onclick="sendEmail()">➤ &nbsp; Send Email</button>
+    <p class="muted">🔒 This opens your email app with the details pre-filled.</p>
+  </div>
+</section>
+
+<section id="history" class="screen">
+  <div class="topbar"><div class="title">Calculation History</div></div><div class="content" id="historyList"></div>
+</section>
+<section id="about" class="screen">
+  <div class="topbar"><div class="title">About</div></div><div class="content"><img class="aboutLogo" src="agri_logo.png"><div class="card aboutText"><b>Mastitis Cost Calculator</b><p>Built by Agri CareTrade to help dairy farmers estimate the financial impact of clinical and subclinical mastitis.</p><p>This calculator is a planning aid and should not replace veterinary or professional herd-health advice.</p><p><b>Agri CareTrade</b><br>028 9446 2266<br>agricaretrade.com</p></div></div>
+</section>
+<section id="printScreen" class="screen">
+  <div class="topbar"><button class="iconbtn" onclick="show('results')">‹</button><div class="title">Print / Save Result</div></div>
+  <div class="content"><div class="report" id="report"><div class="reportTop"><img src="agri_logo.png"><b>Mastitis Cost<br>Calculator Report</b></div><div class="row"><b>Date</b><span data-bind="date"></span></div><div class="row"><b>Herd Size</b><span><span data-bind="cows"></span> cows</span></div><div class="row"><b>Average Yield</b><span><span data-bind="yield"></span> L/day</span></div><div class="row"><b>Milk Price</b><span data-bind="milkPrice"></span></div><div class="reportBand">Estimated Annual Cost</div><div class="reportAmount" data-bind="grand"></div><div class="center muted">(<span data-bind="perCow"></span> per cow)</div><div class="spacer8"></div><div class="row"><span>Clinical Mastitis Cost</span><span data-bind="clinicalTotal"></span></div><div class="row"><span>Subclinical Mastitis Cost</span><span data-bind="subTotal"></span></div><div class="row"><span>Milk Loss Cost</span><span data-bind="milkLossCost"></span></div><div class="row"><span>Other Costs</span><span data-bind="other"></span></div><div class="row total"><span>Total Annual Cost</span><span data-bind="grand"></span></div></div><div class="actions"><div class="spacer8"></div><button class="primary" onclick="printReport()">▣ &nbsp; Print / Save as PDF</button><div class="spacer8"></div><button class="secondary" onclick="shareReport()">↗ &nbsp; Share Report</button></div></div>
+</section>
+
+<nav class="nav" id="nav"><button data-tab="home" class="active" onclick="show('home')"><span class="ni">⌂</span>Home</button><button data-tab="results" onclick="show('results')"><span class="ni">▥</span>Results</button><button data-tab="history" onclick="show('history')"><span class="ni">↶</span>History</button><button data-tab="about" onclick="show('about')"><span class="ni">ⓘ</span>About</button></nav>
+</div>
+<script>
+let result=null;
+const money=n=>'£'+Number(n||0).toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2});
+const num=(id)=>Math.max(0,Number(document.getElementById(id).value)||0);
+function closeWelcome(){document.getElementById('welcomeOverlay').style.display='none';show('calc')}
+function show(id){if(id==='results'&&!result) id='calc';document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id||(id==='calc'&&b.dataset.tab==='home')||(['detail','contact','printScreen'].includes(id)&&b.dataset.tab==='results'))); if(id==='history')renderHistory();window.scrollTo(0,0)}
+function calculate(){
+ const cows=num('cows'), avgYield=num('yield'), monthly=num('clinical'), subRate=Math.min(100,num('subrate')), milkPrice=num('milkprice'), treatment=num('treatment'), annualOther=num('vetannual');
+ const cases=monthly*12;
+ const treatmentCost=cases*treatment;
+ const clinicalMilk=cases*45;
+ const clinicalVet=cases*11.25;
+ const clinicalTotal=treatmentCost+clinicalMilk+clinicalVet;
+ const affected=cows*(subRate/100);
+ const subLitres=affected*438;
+ const subMilkCost=subLitres*milkPrice;
+ const lab=affected*18.9;
+ const subTotal=subMilkCost+lab;
+ const clinicalLitres=cases*151.1666667;
+ const milkLossCost=clinicalLitres*milkPrice;
+ const other=annualOther+(cows*2.4979166667);
+ const grand=clinicalTotal+subTotal+milkLossCost+other;
+ const perCow=cows?grand/cows:0;
+ result={cows,avgYield,monthly,subRate,milkPrice,treatment,annualOther,cases,treatmentCost,clinicalMilk,clinicalVet,clinicalTotal,affected,subLitres,subMilkCost,lab,subTotal,clinicalLitres,milkLossCost,other,grand,perCow,saving:grand*.10,date:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})};
+ bind(); saveHistory(); show('results');
+}
+function bind(){if(!result)return; const values={grand:money(result.grand),perCow:money(result.perCow),clinicalTotal:money(result.clinicalTotal),subTotal:money(result.subTotal),milkLossCost:money(result.milkLossCost),other:money(result.other),saving:money(result.saving),cases:result.cases.toLocaleString('en-GB',{maximumFractionDigits:1}),treatmentCost:money(result.treatmentCost),clinicalMilk:money(result.clinicalMilk),clinicalVet:money(result.clinicalVet),affected:result.affected.toLocaleString('en-GB',{maximumFractionDigits:1}),subLitres:Math.round(result.subLitres).toLocaleString('en-GB'),subMilkCost:money(result.subMilkCost),lab:money(result.lab),clinicalLitres:Math.round(result.clinicalLitres).toLocaleString('en-GB'),milkPrice:money(result.milkPrice)+' / L',date:result.date,cows:result.cows.toLocaleString('en-GB'),yield:result.avgYield.toLocaleString('en-GB',{maximumFractionDigits:1})}; Object.keys(values).forEach(k=>document.querySelectorAll('[data-bind="'+k+'"]').forEach(el=>el.textContent=values[k]));}
+function saveHistory(){let h=JSON.parse(localStorage.getItem('mastitisHistory')||'[]');h.unshift({date:result.date,grand:result.grand,cows:result.cows,subRate:result.subRate,monthly:result.monthly});localStorage.setItem('mastitisHistory',JSON.stringify(h.slice(0,12)))}
+function renderHistory(){let h=JSON.parse(localStorage.getItem('mastitisHistory')||'[]'),el=document.getElementById('historyList');if(!h.length){el.innerHTML='<div class="historyEmpty"><div style="font-size:42px">↶</div><h3>No calculations yet</h3><p>Your recent mastitis cost estimates will appear here.</p></div>';return;}el.innerHTML=h.map(x=>'<div class="histItem"><b>'+x.date+'</b><div class="row"><span>'+x.cows+' cows · '+x.monthly+' clinical cases/month · '+x.subRate+'% subclinical</span><b>'+money(x.grand)+'</b></div></div>').join('')}
+function emailBody(){return `Hello Derek,\n\nPlease can you contact me in regarding my current mastitis problem on my farm.\n\nEstimated annual mastitis cost: ${money(result.grand)}\nHerd size: ${result.cows} cows\nClinical cases per month: ${result.monthly}\nSubclinical mastitis rate: ${result.subRate}%\nMilk price: ${money(result.milkPrice)} / L\n\nName: ${document.getElementById('name').value}\nEmail: ${document.getElementById('email').value}\nPhone: ${document.getElementById('phone').value}\n\n${document.getElementById('comments').value}`}
+function sendEmail(){if(!result){show('calc');return;}const subject='Help Required With Mastitis On My Farm', body=emailBody();if(window.AgriAndroid&&AgriAndroid.openEmail){AgriAndroid.openEmail('derek.patterson@agricaretrade.com',subject,body)}else{location.href='mailto:derek.patterson@agricaretrade.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)}}
+function reportText(){return `Agri CareTrade Mastitis Cost Calculator Report\nDate: ${result.date}\nHerd size: ${result.cows} cows\nAverage yield: ${result.avgYield} L/day\nMilk price: ${money(result.milkPrice)} / L\n\nEstimated annual cost: ${money(result.grand)} (${money(result.perCow)} per cow)\nClinical mastitis cost: ${money(result.clinicalTotal)}\nSubclinical mastitis cost: ${money(result.subTotal)}\nMilk loss cost: ${money(result.milkLossCost)}\nOther costs: ${money(result.other)}`}
+function printReport(){if(window.AgriAndroid&&AgriAndroid.printPage)AgriAndroid.printPage();else window.print()}
+function shareReport(){if(window.AgriAndroid&&AgriAndroid.shareText)AgriAndroid.shareText('Agri CareTrade Mastitis Cost Calculator',reportText());else if(navigator.share)navigator.share({title:'Agri CareTrade Mastitis Cost Calculator',text:reportText()})}
+</script>
+</body></html>
