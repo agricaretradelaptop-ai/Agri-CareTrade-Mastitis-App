@@ -5,12 +5,25 @@ workflows:
     environment:
       java: 21
     scripts:
-      - name: Create Gradle wrapper
+      - name: Create Gradle 9 wrapper
         script: |
-          gradle wrapper --gradle-version 9.5.0
+          rm -rf /tmp/agri-gradle-wrapper
+          mkdir -p /tmp/agri-gradle-wrapper
+          cat > /tmp/agri-gradle-wrapper/build.gradle <<'EOF'
+          tasks.register("wrapper", Wrapper) {
+              gradleVersion = "9.3.0"
+              distributionType = Wrapper.DistributionType.BIN
+          }
+          EOF
+          gradle -p /tmp/agri-gradle-wrapper wrapper --no-daemon
+          cp -R /tmp/agri-gradle-wrapper/gradle ./gradle
+          cp /tmp/agri-gradle-wrapper/gradlew ./gradlew
+          cp /tmp/agri-gradle-wrapper/gradlew.bat ./gradlew.bat
+          chmod +x ./gradlew
+          ./gradlew --version
       - name: Build debug APK
         script: |
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace
     artifacts:
       - app/build/outputs/apk/debug/*.apk
 
@@ -20,11 +33,24 @@ workflows:
     environment:
       java: 21
     scripts:
-      - name: Create Gradle wrapper
+      - name: Create Gradle 9 wrapper
         script: |
-          gradle wrapper --gradle-version 9.5.0
+          rm -rf /tmp/agri-gradle-wrapper
+          mkdir -p /tmp/agri-gradle-wrapper
+          cat > /tmp/agri-gradle-wrapper/build.gradle <<'EOF'
+          tasks.register("wrapper", Wrapper) {
+              gradleVersion = "9.3.0"
+              distributionType = Wrapper.DistributionType.BIN
+          }
+          EOF
+          gradle -p /tmp/agri-gradle-wrapper wrapper --no-daemon
+          cp -R /tmp/agri-gradle-wrapper/gradle ./gradle
+          cp /tmp/agri-gradle-wrapper/gradlew ./gradlew
+          cp /tmp/agri-gradle-wrapper/gradlew.bat ./gradlew.bat
+          chmod +x ./gradlew
+          ./gradlew --version
       - name: Build release AAB
         script: |
-          ./gradlew bundleRelease
+          ./gradlew bundleRelease --stacktrace
     artifacts:
       - app/build/outputs/bundle/release/*.aab
