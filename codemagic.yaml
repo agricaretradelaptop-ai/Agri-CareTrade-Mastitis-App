@@ -5,19 +5,16 @@ workflows:
     environment:
       java: 21
     scripts:
-      - name: Create Gradle 9 wrapper
+      - name: Create Gradle 9.5 wrapper
         script: |
-          set -e
           rm -rf /tmp/agri-gradle-wrapper
           mkdir -p /tmp/agri-gradle-wrapper
           cd /tmp/agri-gradle-wrapper
           touch settings.gradle
-          touch build.gradle
-          gradle wrapper --gradle-version 9.3.0 --distribution-type bin
-          cp gradlew "$CM_BUILD_DIR/gradlew"
-          cp gradlew.bat "$CM_BUILD_DIR/gradlew.bat"
-          rm -rf "$CM_BUILD_DIR/gradle"
-          cp -R gradle "$CM_BUILD_DIR/gradle"
+          gradle wrapper --gradle-version 9.5.0
+          cp -R gradle "$CM_BUILD_DIR/"
+          cp gradlew "$CM_BUILD_DIR/"
+          cp gradlew.bat "$CM_BUILD_DIR/"
           cd "$CM_BUILD_DIR"
           chmod +x gradlew
           ./gradlew --version
@@ -33,19 +30,16 @@ workflows:
     environment:
       java: 21
     scripts:
-      - name: Create Gradle 9 wrapper
+      - name: Create Gradle 9.5 wrapper
         script: |
-          set -e
           rm -rf /tmp/agri-gradle-wrapper
           mkdir -p /tmp/agri-gradle-wrapper
           cd /tmp/agri-gradle-wrapper
           touch settings.gradle
-          touch build.gradle
-          gradle wrapper --gradle-version 9.3.0 --distribution-type bin
-          cp gradlew "$CM_BUILD_DIR/gradlew"
-          cp gradlew.bat "$CM_BUILD_DIR/gradlew.bat"
-          rm -rf "$CM_BUILD_DIR/gradle"
-          cp -R gradle "$CM_BUILD_DIR/gradle"
+          gradle wrapper --gradle-version 9.5.0
+          cp -R gradle "$CM_BUILD_DIR/"
+          cp gradlew "$CM_BUILD_DIR/"
+          cp gradlew.bat "$CM_BUILD_DIR/"
           cd "$CM_BUILD_DIR"
           chmod +x gradlew
           ./gradlew --version
